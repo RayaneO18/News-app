@@ -3,10 +3,12 @@ import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import News from "./News";
+import MainNews from "./MainNews";
 
 export default function Home() {
   const [bookmark, setBookmark] = useState([]);
   const [newsData, setNewsData] = useState([]);
+  const [mainNews, setMainNews] = useState([]);
 
   useEffect(() => {
     fetch(
@@ -23,12 +25,21 @@ export default function Home() {
             source: news.source,
           };
         });
-        setNewsData(formattedData);
+        setMainNews(formattedData.slice(0, 1));
+        setNewsData(formattedData.slice(1));
       });
   }, []);
+  const mainNewsCard = mainNews.map((el, i) => {
+    return <MainNews key={i} {...el} />;
+  });
   const news = newsData.map((item, i) => {
     return <News key={i} {...item} />;
   });
 
-  return <>{news}</>;
+  return (
+    <>
+      {mainNewsCard}
+      {news}
+    </>
+  );
 }
