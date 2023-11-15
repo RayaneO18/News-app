@@ -1,9 +1,7 @@
-import "antd/dist/antd.css";
 import styles from "@/styles/Home.module.css";
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
-import { Popover, Button } from "antd";
 import News from "./News";
 
 export default function Home() {
@@ -21,16 +19,21 @@ export default function Home() {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
-
-        const formattedData = data.articles.map((news) => ({
-          title: news.title,
-          description: news.description,
-          urlToImage: news.urlToImage,
-          publishedAt: news.publishedAt,
-          source: news.source,
-        }));
+        const formattedData = data.articles.map((news) => {
+          return {
+            title: news.title,
+            description: news.description,
+            urlToImage: news.urlToImage,
+            publishedAt: news.publishedAt,
+            source: news.source,
+          };
+        });
         setNewsData(formattedData);
       });
   }, []);
+  const news = newsData.map((item, i) => {
+    return <News key={i} {...item} />;
+  });
+
+  return <>{news}</>;
 }
