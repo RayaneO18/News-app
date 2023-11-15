@@ -2,9 +2,9 @@ import { useState } from "react";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
-import styles from "@/styles/News.module.css";
+import styles from "@/styles/MainNews.module.css";
 
-export default function News(props) {
+export default function MainNews(props) {
   const {
     title,
     description,
@@ -15,7 +15,7 @@ export default function News(props) {
     isBookmark,
   } = props;
 
-  //console.log(props);
+  console.log("maincarddata", props);
 
   let bookmarkStyle = { cursor: "pointer" };
   const handleBookmark = () => {
