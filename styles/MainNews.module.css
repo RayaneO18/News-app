@@ -1,18 +1,23 @@
+
 .card {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 420px;
-  margin: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 5% auto;
+  max-width: 800px;
+  column-count: 2;
 }
 
 .image {
-  width: 420px;
-  border-radius: 10px 10px 0px 0px;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px 0px 0px 10px;
 }
 
 .textContainer {
-  margin: 10px 0px 10px 00px;
+  margin: 10px;
+  text-align: left; 
 }
 
 .name {
