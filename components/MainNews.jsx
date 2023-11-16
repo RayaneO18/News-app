@@ -17,14 +17,6 @@ export default function MainNews(props) {
 
   console.log("maincarddata", props);
 
-  let bookmarkStyle = { cursor: "pointer" };
-  const handleBookmark = () => {
-    updateBookmarks(title, description, urlToImage, publishedAt, source);
-  };
-  if (isBookmark) {
-    bookmarkStyle = { color: "orange", cursor: "pointer" };
-  }
-
   return (
     <div className={styles.card}>
       <img className={styles.image} src={urlToImage} alt="Poster" />
@@ -32,11 +24,7 @@ export default function MainNews(props) {
         <span className={styles.name}>{title}</span>
         <p className={styles.description}>{description}</p>
         <div>
-          <FontAwesomeIcon
-            icon={faBookmark}
-            onClick={() => handleBookmark()}
-            style={bookmarkStyle}
-          />
+          <FontAwesomeIcon icon={faBookmark} />
         </div>
       </div>
     </div>

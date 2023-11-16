@@ -3,8 +3,11 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import styles from "@/styles/News.module.css";
+import { useDispatch } from "react-redux";
+import { addBookmark } from "@/reducers/bookmarks";
 
 export default function News(props) {
+  const dispatch = useDispatch();
   const {
     title,
     description,
@@ -17,13 +20,9 @@ export default function News(props) {
 
   //console.log(props);
 
-  let bookmarkStyle = { cursor: "pointer" };
   const handleBookmark = () => {
-    updateBookmarks(title, description, urlToImage, publishedAt, source);
+    dispatch(addBookmark(props));
   };
-  if (isBookmark) {
-    bookmarkStyle = { color: "orange", cursor: "pointer" };
-  }
 
   return (
     <div className={styles.card}>
@@ -32,11 +31,7 @@ export default function News(props) {
         <span className={styles.name}>{title}</span>
         <p className={styles.description}>{description}</p>
         <div>
-          <FontAwesomeIcon
-            icon={faBookmark}
-            onClick={() => handleBookmark()}
-            style={bookmarkStyle}
-          />
+          <FontAwesomeIcon icon={faBookmark} onClick={() => handleBookmark()} />
         </div>
       </div>
     </div>
