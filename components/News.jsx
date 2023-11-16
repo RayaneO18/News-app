@@ -31,7 +31,11 @@ export default function News(props) {
         <span className={styles.name}>{title}</span>
         <p className={styles.description}>{description}</p>
         <div>
-          <FontAwesomeIcon icon={faBookmark} onClick={() => handleBookmark()} />
+          <FontAwesomeIcon
+            icon={faBookmark}
+            onClick={() => handleBookmark()}
+            className="iconFav"
+          />
         </div>
       </div>
     </div>

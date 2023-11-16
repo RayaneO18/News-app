@@ -8,7 +8,6 @@ import { Popover, Button } from "antd";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 
-
 export default function Home() {
   const [bookmark, setBookmark] = useState([]);
   const [newsData, setNewsData] = useState([]);
@@ -51,9 +50,7 @@ export default function Home() {
             className={styles.popover}
             trigger="click"
           >
-
             <Link href="/bookmarks" legacyBehavior>
-
               <a>
                 <FontAwesomeIcon
                   icon={faBookmark}
