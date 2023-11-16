@@ -2,14 +2,13 @@
 	width: 100%;
 	min-height: 100%;
 	margin: 0;
+	max-width: 100%;
+	max-height: 100%;
 }
-
 .header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	height: 70%;
-	width: 100%;
 	background: linear-gradient(135deg, darkSlateBlue,  darkRed, oliveDrab);
 	color: white;
 	padding: 0% 1% 0% 2%;
@@ -21,3 +20,23 @@
 	color: #d69723;
 	font-size: 135%;
 }
+.mainNewsCard{
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	grid-template-columns: 2fr
+}
+.newsContainer{
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 100%;
+	height: 100%;
+	margin: 20px;
+}
+@media (max-width: 600px) {
+	.card {
+	  width: 100%; 
+	}
+  }

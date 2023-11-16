@@ -60,8 +60,8 @@ export default function Home() {
           </Popover>
         </div>
       </div>
-      {mainNewsCard}
-      {news}
+      <div className={styles.mainNewsCard}>{mainNewsCard}</div>
+      <div className={styles.newsContainer}>{news}</div>
     </>
   );
 }
