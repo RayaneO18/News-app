@@ -5,7 +5,7 @@ import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import styles from "@/styles/Bookmarks.module.css";
 
 export default function Bookmarks() {
-  const bookmarks = useSelector((state) => state.bookmarks.value);
+  const bookmarks = useSelector((state) => state.bookmarks.value.favorites);
   console.log("bkmrks", bookmarks);
 
   return (

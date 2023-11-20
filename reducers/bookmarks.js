@@ -1,6 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
-  value: [],
+  value: {
+    favorites: [],
+    favoritesTitles: [],
+  },
 };
 
 export const bookmarksSlice = createSlice({
@@ -8,10 +11,28 @@ export const bookmarksSlice = createSlice({
   initialState,
   reducers: {
     addBookmark: (state, action) => {
-      state.value.push(action.payload);
+      if (state.value.favoritesTitles.includes(action.payload.title)) {
+        return;
+      }
+      state.value.favoritesTitles = [
+        ...state.value.favoritesTitles,
+        action.payload.title,
+      ];
+      state.value.favorites = [...state.value.favorites, action.payload];
     },
     removeBookmark: (state, action) => {
-      state.value = state.value.filter((el) => el.id !== action.payload.id);
+      state.value.favorites = state.value.favorites.filter((fav) => {
+        if (action.payload !== fav.title) {
+          return fav;
+        }
+      });
+      state.value.favoritesTitles = state.value.favoritesTitles.filter(
+        (fav) => {
+          if (action.payload !== fav) {
+            return fav;
+          }
+        }
+      );
     },
   },
 });
