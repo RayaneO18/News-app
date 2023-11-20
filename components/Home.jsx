@@ -49,10 +49,10 @@ export default function Home() {
   });
 
   return (
-    <>
+    <div className={styles.main}>
       <Header onSearch={handleSearch} />
       <div className={styles.mainNewsCard}>{mainNewsCard}</div>
       <div className={styles.newsContainer}>{news}</div>
-    </>
+    </div>
   );
 }

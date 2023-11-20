@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark, faTrash } from "@fortawesome/free-solid-svg-icons";
 import styles from "@/styles/News.module.css";
 import { useDispatch } from "react-redux";
-import { addBookmark, removeBookmark } from "@/reducers/bookmarks";
+import { addBookmark } from "@/reducers/bookmarks";
 
 export default function News(props) {
   const dispatch = useDispatch();
