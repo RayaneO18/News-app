@@ -1,8 +1,7 @@
-import { useState } from "react";
-import React from "react";
+// MainNews.jsx
+import styles from "@/styles/MainNews.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
-import styles from "@/styles/MainNews.module.css";
 
 export default function MainNews(props) {
   const {
@@ -15,7 +14,7 @@ export default function MainNews(props) {
     isBookmark,
   } = props;
 
-  console.log("maincarddata", props);
+  console.log("mainCardData", props);
 
   return (
     <div className={styles.card}>
@@ -23,7 +22,7 @@ export default function MainNews(props) {
       <div className={styles.textContainer}>
         <span className={styles.name}>{title}</span>
         <p className={styles.description}>{description}</p>
-        <div>
+        <div className={styles.iconFav}>
           <FontAwesomeIcon icon={faBookmark} />
         </div>
       </div>
