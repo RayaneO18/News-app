@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px; 
+    width: 100%;
+    margin: 0 auto;
+    background: linear-gradient(135deg, darkSlateBlue, darkRed, oliveDrab);
+    color: white;
+    padding: 0% 1% 0% 2%;
+}
+
+.logo {
+    width: 8%;
+}
+
+.iconLink {
+    color: #d69723;
+    font-size: 1.2rem;
+}
+.searchContainer {
+    display: flex;
+    align-items: center;
+}
+  
+  .searchIcon {
+    margin-left: 5px; 
+  }
