@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import styles from "@/styles/News.module.css";
 import { useDispatch } from "react-redux";
-import { addBookmark, removeBookmark } from "@/reducers/bookmarks";
+import { addBookmark } from "@/reducers/bookmarks";
 
 export default function News(props) {
   const dispatch = useDispatch();
@@ -15,15 +15,13 @@ export default function News(props) {
     publishedAt,
     source,
     updateBookmarks,
-    isBookmarked,
+    isBookmark,
   } = props;
 
   const handleBookmark = () => {
     dispatch(addBookmark(props));
   };
-  const handleRemoveBookmark = () => {
-    dispatch(removeBookmark(props));
-  };
+
   return (
     <div className={styles.card}>
       <img className={styles.image} src={urlToImage} alt="Poster" />

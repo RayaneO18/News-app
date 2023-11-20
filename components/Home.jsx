@@ -45,10 +45,10 @@ export default function Home() {
   const news = newsData.map((item, i) => <News key={i} {...item} />);
 
   return (
-    <>
+    <div className={styles.main}>
       <Header onSearch={handleSearch} />
       <div className={styles.mainNewsCard}>{mainNewsCard}</div>
       <div className={styles.newsContainer}>{news}</div>
-    </>
+    </div>
   );
 }
