@@ -8,11 +8,11 @@ import { Popover, Button } from "antd";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 
-
 export default function Home() {
   const [bookmark, setBookmark] = useState([]);
   const [newsData, setNewsData] = useState([]);
   const [mainNews, setMainNews] = useState([]);
+  const bookmarks = useSelector((state) => state.bookmarks.value);
 
   useEffect(() => {
     fetch(
@@ -37,7 +37,8 @@ export default function Home() {
     return <MainNews key={i} {...el} />;
   });
   const news = newsData.map((item, i) => {
-    return <News key={i} {...item} />;
+    const isBookmarked = bookmarks.find((el) => el.id === item.id);
+    return <News isBookmarked={isBookmarked} key={i} {...item} />;
   });
   const popoverContent = <div>1 news like</div>;
   return (
@@ -51,9 +52,7 @@ export default function Home() {
             className={styles.popover}
             trigger="click"
           >
-
             <Link href="/bookmarks" legacyBehavior>
-
               <a>
                 <FontAwesomeIcon
                   icon={faBookmark}
