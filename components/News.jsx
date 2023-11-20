@@ -34,8 +34,9 @@ export default function News(props) {
       <div className={styles.iconContainer}>
         <FontAwesomeIcon
           icon={faBookmark}
-          onClick={() => handleBookmark()}
-          className="iconFav"
+          onClick={() =>
+            isBookmarked ? handleRemoveBookmark() : handleBookmark()
+          }
         />
       </div>
     </div>

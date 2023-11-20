@@ -11,7 +11,7 @@ export default function Home() {
   const [newsData, setNewsData] = useState([]);
   const [mainNews, setMainNews] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-
+  const bookmarks = useSelector((state) => state.bookmarks.value);
   useEffect(() => {
     const fetchNews = async () => {
       try {
@@ -42,7 +42,10 @@ export default function Home() {
 
   const mainNewsCard = mainNews.map((el, i) => <MainNews key={i} {...el} />);
 
-  const news = newsData.map((item, i) => <News key={i} {...item} />);
+  const news = newsData.map((item, i) => {
+    const isBookmarked = bookmarks.find((el) => item.id === el.id);
+    return <News isBookmarked={isBookmarked} key={i} {...item} />;
+  });
 
   return (
     <>

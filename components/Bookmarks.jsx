@@ -5,6 +5,7 @@ import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 export default function Bookmarks() {
   const bookmarks = useSelector((state) => state.bookmarks.value);
   console.log("bkmrks", bookmarks);
+  const isBookmarked = bookmarks.find((item) => item.id === el.id);
   return (
     <div>
       {bookmarks.map((bookmark) => (
