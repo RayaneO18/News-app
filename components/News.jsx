@@ -18,8 +18,6 @@ export default function News(props) {
     isBookmark,
   } = props;
 
-  //console.log(props);
-
   const handleBookmark = () => {
     dispatch(addBookmark(props));
   };
@@ -30,13 +28,13 @@ export default function News(props) {
       <div className={styles.textContainer}>
         <span className={styles.name}>{title}</span>
         <p className={styles.description}>{description}</p>
-        <div>
-          <FontAwesomeIcon
-            icon={faBookmark}
-            onClick={() => handleBookmark()}
-            className="iconFav"
-          />
-        </div>
+      </div>
+      <div className={styles.iconContainer}>
+        <FontAwesomeIcon
+          icon={faBookmark}
+          onClick={() => handleBookmark()}
+          className="iconFav"
+        />
       </div>
     </div>
   );
