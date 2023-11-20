@@ -1,10 +1,12 @@
 // MainNews.jsx
+import React from "react";
 import styles from "@/styles/MainNews.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import { addBookmark, removeBookmark } from "@/reducers/bookmarks";
 import { useState } from "react";
+
 export default function MainNews(props) {
   const dispatch = useDispatch();
   let { title, description, urlToImage, publishedAt, source, updateBookmarks } =

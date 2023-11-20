@@ -1,4 +1,3 @@
-// Bookmarks.jsx
 import React from "react";
 import { useSelector } from "react-redux";
 import Header from "./Header";
@@ -10,6 +9,14 @@ export default function Bookmarks() {
   const bookmarks = useSelector((state) => state.bookmarks.value.favorites);
   console.log("bkmrks", bookmarks);
 
+  const handleBookmark = (bookmark) => {
+    console.log("Bookmark added:", bookmark);
+  };
+
+  const handleRemoveBookmark = (bookmark) => {
+    console.log("Bookmark removed:", bookmark.title);
+  };
+
   return (
     <div>
       <Header
@@ -19,7 +26,7 @@ export default function Bookmarks() {
       />
 
       {bookmarks.map((bookmark) => (
-        <div>
+        <div key={bookmark.title}>
           <div className={styles.card}>
             <img
               className={styles.image}
@@ -33,9 +40,7 @@ export default function Bookmarks() {
             <div className={styles.iconContainer}>
               <FontAwesomeIcon
                 icon={faBookmark}
-                onClick={() =>
-                  isBookmarked ? handleRemoveBookmark() : handleBookmark()
-                }
+                onClick={() => handleRemoveBookmark(bookmark)}
               />
             </div>
           </div>
